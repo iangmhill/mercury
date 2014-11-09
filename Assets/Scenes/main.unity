@@ -187,6 +187,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xsize: 120
   ysize: 80
+  planetsize: 10
+  numberofplanets: 10
   sector_model: {fileID: 100000, guid: 1694b02e5bda1bc49a6ab2049f951289, type: 2}
 --- !u!4 &2021901621
 Transform:
