@@ -16,10 +16,12 @@ public class SectorMapGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () { 
 		prob = (numberofplanets)/(xsize * ysize / (planetsize *planetsize * 4)); 
-		for (float x = -xsize/2f; x<xsize/2f; x+=planetsize) {
-			for (float y=-ysize/2f; y<ysize/2f; y+=planetsize) {
+		for (float x = -xsize/2f; x<xsize/2f; x+=planetsize*2) {
+			for (float y=-ysize/2f; y<ysize/2f; y+=planetsize*2) {
 				if (Random.Range(0.0f,1.0f)<prob) {
-					GameObject sector =  (GameObject)GameObject.Instantiate(sector_model,new Vector2(x,y),Quaternion.identity);
+					xchange = Random.Range (-planetsize/2f, planetsize/2f);
+					ychange = Random.Range (-planetsize/2f, planetsize/2f);
+					GameObject sector =  (GameObject)GameObject.Instantiate(sector_model,new Vector2(x+xchange,y+ychange),Quaternion.identity);
 					sector.transform.localScale = new Vector3(planetsize,planetsize,planetsize);
 					sector.transform.SetParent(transform);
 				}
