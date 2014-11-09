@@ -13,7 +13,9 @@ public class SectorMapGenerator : MonoBehaviour {
 	private float xchange;
 	private float ychange;	
 	private int totalplanets = 0;
+	private int destroyedplanet;
 	private ArrayList locations;
+
 
 
 	// Use this for initialization
@@ -31,10 +33,15 @@ public class SectorMapGenerator : MonoBehaviour {
 						sector.transform.SetParent(transform);
 						locations.Add(sector);
 						totalplanets += 1;
-
 					}
 				}
 			}
+		}
+		while (totalplanets > numberofplanets) {
+			destroyedplanet = Random.Range (0,locations.Count-1);
+			Destroy (locations[destroyedplanet] as GameObject);
+			locations.RemoveAt(destroyedplanet);
+			totalplanets -= 1;
 		}
 	}
 }
