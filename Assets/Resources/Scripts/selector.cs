@@ -3,7 +3,7 @@ using System.Collections;
 
 public class cubeController : MonoBehaviour 
 {
-
+	private bool colorChanger = false;
 	// Use this for initialization
 	
 	void changeColor()
